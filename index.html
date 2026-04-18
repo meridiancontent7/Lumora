@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumora — Your Cars, At Their Best</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9882A;
+  --gold-light: #E8A94A;
+  --gold-dim: #8A5A12;
+  --charcoal: #0E0E0F;
+  --charcoal-2: #1A1A1C;
+  --charcoal-3: #252527;
+  --charcoal-4: #333335;
+  --ivory: #F5F0E8;
+  --ivory-2: #EDE8DF;
+  --muted: #9A8A7A;
+  --muted-2: #6A5A4A;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--charcoal);
+  color: var(--ivory);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(14,14,15,0.95), transparent);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ivory); }
+
+.nav-cta {
+  padding: 9px 22px;
+  background: var(--gold);
+  color: var(--charcoal) !important;
+  border-radius: 4px;
+  font-weight: 500 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--charcoal) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,136,42,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 30%, rgba(201,136,42,0.04) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,136,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,136,42,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  padding: 6px 16px;
+  border: 0.5px solid rgba(201,136,42,0.3);
+  border-radius: 20px;
+  background: rgba(201,136,42,0.06);
+  position: relative;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  position: relative;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-title-2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--muted);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: fadeUp 0.8s 0.25s ease both;
+}
+
+.btn-primary {
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--charcoal);
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+.btn-ghost {
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--muted);
+  border: 0.5px solid var(--charcoal-4);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover { border-color: var(--gold); color: var(--ivory); }
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 0.5px solid var(--charcoal-3);
+  animation: fadeUp 0.8s 0.35s ease both;
+}
+
+.stat-item { text-align: center; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.stat-div {
+  width: 0.5px;
+  height: 40px;
+  background: var(--charcoal-3);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── PROBLEM ─── */
+.section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--charcoal-3);
+  border: 0.5px solid var(--charcoal-3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 56px;
+}
+
+.problem-item {
+  background: var(--charcoal-2);
+  padding: 32px 36px;
+  transition: background 0.2s;
+}
+
+.problem-item:hover { background: var(--charcoal-3); }
+
+.problem-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--charcoal-4);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.problem-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+
+.problem-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── SERVICES ─── */
+.services-wrap { background: var(--charcoal-2); }
+
+.services-inner {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.service-card {
+  background: var(--charcoal);
+  border: 0.5px solid var(--charcoal-3);
+  border-radius: 10px;
+  padding: 32px;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover { border-color: var(--charcoal-4); transform: translateY(-2px); }
+.service-card:hover::before { opacity: 1; }
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.service-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.service-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-delivers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.deliver-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.deliver-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* ─── HOW IT WORKS ─── */
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  position: relative;
+}
+
+.how-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  right: 10%;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--charcoal-4), var(--charcoal-4), transparent);
+}
+
+.how-step {
+  padding: 0 24px;
+  text-align: center;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--charcoal-2);
+  border: 0.5px solid var(--charcoal-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─── PRICING ─── */
+.pricing-wrap { background: var(--charcoal-2); }
+
+.pricing-inner {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+
+.toggle-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle-label.active { color: var(--ivory); }
+
+.toggle-track {
+  width: 44px;
+  height: 24px;
+  background: var(--charcoal-4);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-track.on { background: var(--gold); }
+
+.toggle-knob {
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
+}
+
+.toggle-track.on .toggle-knob { left: 23px; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.price-card {
+  background: var(--charcoal);
+  border: 0.5px solid var(--charcoal-3);
+  border-radius: 10px;
+  padding: 32px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.price-card.featured {
+  border-color: var(--gold);
+  background: var(--charcoal-2);
+}
+
+.price-badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--charcoal);
+  padding: 4px 14px;
+  border-radius: 0 0 6px 6px;
+}
+
+.price-tier {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.price-currency {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.price-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--ivory);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.price-local {
+  font-size: 11px;
+  color: var(--gold);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.price-divider {
+  height: 0.5px;
+  background: var(--charcoal-3);
+  margin-bottom: 24px;
+}
+
+.price-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.price-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.pf-check {
+  color: var(--gold);
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.price-cta {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: var(--ivory);
+  border: 0.5px solid var(--charcoal-4);
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.price-cta:hover { border-color: var(--gold); color: var(--gold); }
+
+.price-card.featured .price-cta {
+  background: var(--gold);
+  color: var(--charcoal);
+  border-color: var(--gold);
+}
+
+.price-card.featured .price-cta:hover { background: var(--gold-light); }
+
+/* ─── BEFORE / AFTER ─── */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.ba-col {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 0.5px solid var(--charcoal-3);
+}
+
+.ba-header {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 0.5px solid var(--charcoal-3);
+}
+
+.ba-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ba-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ba-before .ba-header { background: var(--charcoal-2); }
+.ba-before .ba-dot { background: var(--charcoal-4); }
+.ba-before .ba-label { color: var(--muted); }
+
+.ba-after .ba-header { background: rgba(201,136,42,0.08); border-color: rgba(201,136,42,0.2); }
+.ba-after .ba-dot { background: var(--gold); }
+.ba-after .ba-label { color: var(--gold); }
+
+.ba-body { padding: 24px; background: var(--charcoal-2); }
+
+.ba-car-mock {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-before .ba-car-mock {
+  background: var(--charcoal-3);
+  filter: grayscale(0.6);
+}
+
+.ba-after .ba-car-mock {
+  background: linear-gradient(135deg, #1a1a1c, #252527);
+  border: 0.5px solid rgba(201,136,42,0.2);
+}
+
+.ba-after .ba-car-mock::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 70%, rgba(201,136,42,0.08), transparent);
+}
+
+.ba-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ba-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ba-x { color: #E24B4A; font-size: 12px; }
+.ba-check { color: var(--gold); font-size: 12px; }
+
+/* ─── TESTIMONIAL ─── */
+.testi-wrap {
+  background: var(--charcoal-2);
+  border-top: 0.5px solid var(--charcoal-3);
+  border-bottom: 0.5px solid var(--charcoal-3);
+}
+
+.testi-inner {
+  padding: 80px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testi-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.testi-quote em { color: var(--gold); font-style: normal; }
+
+.testi-attr {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 120px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,136,42,0.08), transparent);
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.cta-title em { font-style: italic; color: var(--gold); }
+
+.cta-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.cta-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cta-input {
+  flex: 1;
+  padding: 14px 18px;
+  background: var(--charcoal-2);
+  border: 0.5px solid var(--charcoal-4);
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ivory);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cta-input::placeholder { color: var(--muted-2); }
+.cta-input:focus { border-color: var(--gold); }
+
+.cta-note {
+  font-size: 11px;
+  color: var(--muted-2);
+  margin-top: 14px;
+  position: relative;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 40px 48px;
+  border-top: 0.5px solid var(--charcoal-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.footer-tagline {
+  font-size: 11px;
+  color: var(--muted-2);
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: var(--muted-2);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--ivory); }
+
+.footer-copy {
+  font-size: 11px;
+  color: var(--muted-2);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 20px 60px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .section { padding: 60px 20px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .services-inner { padding: 60px 20px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .how-steps::before { display: none; }
+  .pricing-inner { padding: 60px 20px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 80px 20px; }
+  .cta-form { flex-direction: column; }
+  footer { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Lumora</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-eyebrow">AI-powered content for car dealerships</div>
+
+  <h1 class="hero-title">Your cars,</h1>
+  <h2 class="hero-title-2">at their best.</h2>
+
+  <p class="hero-sub">
+    Cinematic videos, enhanced images, and branded AI presenter content — produced from your existing photos. No film crew. No agency fees. Just great content, every month.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Start for free ↗</a>
+    <a href="#services" class="btn-ghost">See what we do</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">4×</div>
+      <div class="stat-label">More inquiries from video listings</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat-item">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">From photos to published content</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat-item">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Film crew needed</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Content, every month</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section style="background: var(--charcoal-2); border-top: 0.5px solid var(--charcoal-3);">
+  <div class="section">
+    <div class="section-eyebrow">The problem</div>
+    <h2 class="section-title">Great cars.<br><em>Invisible listings.</em></h2>
+    <p class="section-sub">Most dealerships have the stock. They just don't have the content to sell it faster. Blurry photos and zero video means cars sit longer than they should.</p>
+
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="problem-num">01</div>
+        <div class="problem-title">Your photos aren't doing the car justice</div>
+        <div class="problem-text">Phone photos with flat lighting, distracting backgrounds, and poor framing. The car looks worse than it is. Buyers scroll past.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">02</div>
+        <div class="problem-title">No video means less reach, less trust</div>
+        <div class="problem-text">Listings with video get 4× more inquiries. Most dealers post none. The algorithm punishes static content on every platform.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">03</div>
+        <div class="problem-title">Hiring an agency is slow and expensive</div>
+        <div class="problem-text">A videographer for a single car costs hundreds. A full shoot for your lot? Thousands. And you wait weeks for the edit.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">04</div>
+        <div class="problem-title">Stock changes faster than your content</div>
+        <div class="problem-text">By the time content is ready, the car is sold. You need content on demand — not a quarterly shoot.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section>
+  <div class="section">
+    <div class="section-eyebrow">The difference</div>
+    <h2 class="section-title">Before Lumora.<br><em>After Lumora.</em></h2>
+
+    <div class="ba-grid">
+      <div class="ba-col ba-before">
+        <div class="ba-header">
+          <div class="ba-dot"></div>
+          <div class="ba-label">Without Lumora</div>
+        </div>
+        <div class="ba-body">
+          <div class="ba-car-mock">🚗</div>
+          <div class="ba-items">
+            <div class="ba-item"><span class="ba-x">✕</span>Blurry, dark phone photos</div>
+            <div class="ba-item"><span class="ba-x">✕</span>No video content</div>
+            <div class="ba-item"><span class="ba-x">✕</span>Generic, inconsistent social posts</div>
+            <div class="ba-item"><span class="ba-x">✕</span>No brand presenter or voice</div>
+            <div class="ba-item"><span class="ba-x">✕</span>Cars sitting longer on the lot</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-col ba-after">
+        <div class="ba-header">
+          <div class="ba-dot"></div>
+          <div class="ba-label">With Lumora</div>
+        </div>
+        <div class="ba-body">
+          <div class="ba-car-mock">✨</div>
+          <div class="ba-items">
+            <div class="ba-item"><span class="ba-check">✓</span>Studio-quality 4K enhanced images</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Cinematic listing videos from photos</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Branded social reels, weekly</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Your AI brand presenter on every video</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Faster sales, more inquiries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-wrap" id="services">
+  <div class="services-inner">
+    <div class="section-eyebrow">What we do</div>
+    <h2 class="section-title">Four services.<br><em>One monthly subscription.</em></h2>
+    <p class="section-sub">Everything your dealership needs to stand out — delivered to your portal within 48 hours of submission.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <span class="service-icon">📸</span>
+        <div class="service-name">AI Enhanced Car Images</div>
+        <div class="service-desc">Transform ordinary dealer photos into studio-quality images. 4K upscaled, colour corrected, professionally lit — ready for listings and social in hours.</div>
+        <div class="service-delivers">
+          <div class="deliver-item"><div class="deliver-dot"></div>4K upscale from any photo quality</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Cinematic colour grading and lighting</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Clean backgrounds, distraction removed</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Ready for AutoTrader, Jiji, social media</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <span class="service-icon">🎬</span>
+        <div class="service-name">Cinematic Listing Videos</div>
+        <div class="service-desc">From your enhanced photos, we create a 30–60 second cinematic video for each car. Dynamic camera movement, voiceover, music. No filming required.</div>
+        <div class="service-delivers">
+          <div class="deliver-item"><div class="deliver-dot"></div>Parallax and Ken Burns camera movement</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>AI voiceover highlighting key specs</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Licensed background music</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Formatted for YouTube, your website, OTAs</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <span class="service-icon">📱</span>
+        <div class="service-name">Dynamic Social Reels</div>
+        <div class="service-desc">Fast-cut, music-driven reels showcasing your stock or promoting your brand. Built for Instagram, TikTok, and Facebook — the formats that get reach.</div>
+        <div class="service-delivers">
+          <div class="deliver-item"><div class="deliver-dot"></div>Multi-car stock reels</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Seasonal and promotional campaigns</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Trending audio and caption strategy</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>9:16, 4:5, 16:9 format delivery</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <span class="service-icon">🧑‍💼</span>
+        <div class="service-name">Brand Avatar Presenter</div>
+        <div class="service-desc">A hyper-realistic AI presenter built around your brand — consistent face, your dealership's colours and clothing, appearing on every video you choose.</div>
+        <div class="service-delivers">
+          <div class="deliver-item"><div class="deliver-dot"></div>Custom avatar built from your brand assets</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Appears in listing and reel intros/outros</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Clothing adjustable per video</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Locked avatar — yours permanently</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-title">Simple for you.<br><em>Powerful behind the scenes.</em></h2>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-circle">1</div>
+        <div class="step-title">Submit photos</div>
+        <div class="step-text">Upload your car photos and a brief via your Lumora portal. Takes 3 minutes per car.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-circle">2</div>
+        <div class="step-title">We produce</div>
+        <div class="step-text">Our AI pipeline enhances images, writes the script, generates the voiceover, and assembles your video.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-circle">3</div>
+        <div class="step-title">You're notified</div>
+        <div class="step-text">WhatsApp and email alert when your content is ready. Usually within 48 hours.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-circle">4</div>
+        <div class="step-title">Download & post</div>
+        <div class="step-text">Log into your branded portal, download your videos and images, post. Done.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">One flat monthly fee.<br><em>No surprises.</em></h2>
+
+    <div class="pricing-toggle">
+      <span class="toggle-label active" id="label-intl">International (USD)</span>
+      <div class="toggle-track" id="currency-toggle" onclick="toggleCurrency()">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label" id="label-local">Kenya (KES)</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">
+          <span class="price-currency" id="curr-1">$</span>
+          <span class="price-num" id="price-1">350</span>
+        </div>
+        <div class="price-period">per month</div>
+        <div class="price-local" id="local-1">KES 15,000 / month</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature"><span class="pf-check">✓</span>10 enhanced car images / month</div>
+          <div class="price-feature"><span class="pf-check">✓</span>4 cinematic listing videos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>2 social reels</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Branded portal access</div>
+          <div class="price-feature"><span class="pf-check">✓</span>WhatsApp + email delivery alerts</div>
+        </div>
+        <a href="#contact" class="price-cta">Get started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">
+          <span class="price-currency" id="curr-2">$</span>
+          <span class="price-num" id="price-2">650</span>
+        </div>
+        <div class="price-period">per month</div>
+        <div class="price-local" id="local-2">KES 30,000 / month</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature"><span class="pf-check">✓</span>25 enhanced car images / month</div>
+          <div class="price-feature"><span class="pf-check">✓</span>10 cinematic listing videos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>6 social reels + 1 brand campaign</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Brand avatar presenter included</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Multi-format per video (9:16, 4:5, 16:9)</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Priority 24hr turnaround</div>
+        </div>
+        <a href="#contact" class="price-cta">Get started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Pro</div>
+        <div class="price-amount">
+          <span class="price-currency" id="curr-3">$</span>
+          <span class="price-num" id="price-3">1000</span>
+        </div>
+        <div class="price-period">per month</div>
+        <div class="price-local" id="local-3">KES 50,000 / month</div>
+        <div class="price-divider"></div>
+        <div class="price-features">
+          <div class="price-feature"><span class="pf-check">✓</span>Unlimited enhanced images</div>
+          <div class="price-feature"><span class="pf-check">✓</span>20 cinematic listing videos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Unlimited social reels</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Avatar + seasonal campaign videos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Dedicated content strategist</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Same-day turnaround</div>
+        </div>
+        <a href="#contact" class="price-cta">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL PLACEHOLDER -->
+<section class="testi-wrap">
+  <div class="testi-inner">
+    <div class="testi-quote">"We went from posting blurry photos to having <em>cinematic content</em> for every car on the lot. Our Instagram reach doubled in the first month."</div>
+    <div class="testi-attr">Early client · Nairobi, Kenya</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <h2 class="cta-title">Ready to see<br><em>your first video?</em></h2>
+  <p class="cta-sub">Send us your details and we'll produce a sample video for one of your cars — on us.</p>
+  <div class="cta-form">
+    <input type="email" class="cta-input" placeholder="Your email address">
+    <a href="mailto:hello@lumoravideo.com" class="btn-primary">Get a free sample</a>
+  </div>
+  <div class="cta-note">No commitment. We'll send your sample within 48 hours.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Lumora</div>
+    <div class="footer-tagline">by MI Automations · lumoravideo.com</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="mailto:hello@lumoravideo.com">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Lumora · MI Automations</div>
+</footer>
+
+<script>
+var isLocal = false;
+var prices = {
+  intl: ['350','650','1000'],
+  local: ['15,000','30,000','50,000'],
+  currIntl: ['$','$','$'],
+  currLocal: ['KES ','KES ','KES ']
+};
+
+function toggleCurrency() {
+  isLocal = !isLocal;
+  var toggle = document.getElementById('currency-toggle');
+  toggle.classList.toggle('on', isLocal);
+  document.getElementById('label-intl').classList.toggle('active', !isLocal);
+  document.getElementById('label-local').classList.toggle('active', isLocal);
+
+  for (var i = 1; i <= 3; i++) {
+    document.getElementById('price-' + i).textContent = isLocal ? prices.local[i-1] : prices.intl[i-1];
+    document.getElementById('curr-' + i).textContent = isLocal ? prices.currLocal[i-1] : prices.currIntl[i-1];
+  }
+  document.getElementById('local-1').style.display = isLocal ? 'none' : 'block';
+  document.getElementById('local-2').style.display = isLocal ? 'none' : 'block';
+  document.getElementById('local-3').style.display = isLocal ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>
