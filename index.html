@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumora — Your Cars, At Their Best</title>
+<title>Lumora — AI video for car yards, hotels &amp; Airbnbs</title>
+<meta name="description" content="Cinematic videos and social reels made from the photos you already have. For car yards, hotels and Airbnbs. Free sample, pause or cancel anytime.">
+<meta property="og:title" content="Lumora — Your photos, turned into video">
+<meta property="og:description" content="Cinematic videos and social reels for car yards, hotels and Airbnbs. Get a free sample.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -720,37 +723,7 @@ nav {
 
 .ba-body { padding: 24px; background: var(--charcoal-2); }
 
-.ba-car-mock {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  margin-bottom: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.ba-before .ba-car-mock {
-  background: var(--charcoal-3);
-  filter: grayscale(0.6);
-}
-
-.ba-after .ba-car-mock {
-  background: linear-gradient(135deg, #1a1a1c, #252527);
-  border: 0.5px solid rgba(201,136,42,0.2);
-}
-
-.ba-after .ba-car-mock::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 70%, rgba(201,136,42,0.08), transparent);
-}
-
-.ba-items {
+.ba-before .ba-after .ba-items {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -766,40 +739,6 @@ nav {
 
 .ba-x { color: #E24B4A; font-size: 12px; }
 .ba-check { color: var(--gold); font-size: 12px; }
-
-/* ─── TESTIMONIAL ─── */
-.testi-wrap {
-  background: var(--charcoal-2);
-  border-top: 0.5px solid var(--charcoal-3);
-  border-bottom: 0.5px solid var(--charcoal-3);
-}
-
-.testi-inner {
-  padding: 80px 48px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testi-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--ivory);
-  line-height: 1.5;
-  margin-bottom: 32px;
-}
-
-.testi-quote em { color: var(--gold); font-style: normal; }
-
-.testi-attr {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
 
 /* ─── CTA ─── */
 .cta-section {
@@ -932,6 +871,68 @@ footer {
   footer { flex-direction: column; gap: 20px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
+
+/* ─── HERO EXTRAS ─── */
+.hero-for {
+  display: flex;
+  gap: 24px;
+  margin-top: 28px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-for a { color: var(--muted); text-decoration: none; border-bottom: 0.5px solid var(--charcoal-4); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.hero-for a:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ─── SAMPLES ─── */
+.samples-wrap { background: var(--charcoal-2); border-top: 0.5px solid var(--charcoal-3); }
+.samples-inner { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+.sample-group { margin-top: 56px; }
+.sample-group + .sample-group { margin-top: 64px; }
+.sample-group-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
+.sample-group-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--ivory); }
+.sample-group-note { font-size: 12px; color: var(--muted-2); letter-spacing: 0.04em; }
+.sample-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; }
+.sample { margin: 0; }
+.sample-frame {
+  background: #000;
+  border: 0.5px solid var(--charcoal-4);
+  border-radius: 10px;
+  overflow: hidden;
+  line-height: 0;
+}
+.sample video { display: block; height: 400px; width: auto; max-width: 100%; background: #000; }
+.sample figcaption { margin-top: 10px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+.sample figcaption strong { display: block; font-weight: 500; color: var(--ivory); font-size: 13px; }
+.sample-disclaimer { margin-top: 40px; font-size: 12px; color: var(--muted-2); max-width: 640px; line-height: 1.7; }
+
+/* ─── PRICING EXTRAS ─── */
+.pricing-promise {
+  display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 28px;
+  font-size: 13px; color: var(--muted);
+}
+.pricing-promise span::before { content: '✓'; color: var(--gold); margin-right: 8px; }
+.pricing-note { margin-top: 28px; font-size: 12px; color: var(--muted-2); line-height: 1.7; max-width: 680px; }
+.addon-tag {
+  display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 9px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+  border: 0.5px solid rgba(201,136,42,0.4); border-radius: 10px; padding: 3px 10px; margin-left: 10px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .hero-for { flex-direction: column; gap: 12px; align-items: center; }
+  .hero-actions { flex-direction: column; width: 100%; max-width: 300px; }
+  .hero-actions a { width: 100%; justify-content: center; text-align: center; }
+  .samples-inner { padding: 60px 20px; }
+  .sample-row {
+    flex-wrap: nowrap; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scroll-padding-left: 20px; padding-bottom: 8px; margin: 0 -20px; padding-left: 20px; padding-right: 20px;
+  }
+  .sample { flex: 0 0 auto; scroll-snap-align: start; }
+  .sample video { height: auto; max-height: 360px; width: auto; max-width: calc(100vw - 40px); }
+  .cta-form { flex-direction: row; }
+}
 </style>
 </head>
 <body>
@@ -940,10 +941,11 @@ footer {
 <nav>
   <a href="#" class="nav-logo">Lumora</a>
   <ul class="nav-links">
+    <li><a href="#samples">Samples</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta">Get started</a></li>
+    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta">Get a free sample</a></li>
   </ul>
 </nav>
 
@@ -952,29 +954,34 @@ footer {
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <div class="hero-eyebrow">AI-powered content for car dealerships</div>
+  <div class="hero-eyebrow">AI video for car yards, hotels &amp; Airbnbs</div>
 
-  <h1 class="hero-title">Your cars,</h1>
-  <h2 class="hero-title-2">at their best.</h2>
+  <h1 class="hero-title">Your photos,</h1>
+  <h2 class="hero-title-2">turned into video.</h2>
 
   <p class="hero-sub">
-    Cinematic videos, enhanced images, and branded AI presenter content — produced from your existing photos. No film crew. No agency fees. Just great content, every month.
+    Cinematic videos and social reels made from the photos you already have. No film crew. No agency fees. One simple monthly plan you can pause or cancel anytime.
   </p>
 
   <div class="hero-actions">
-    <a href="https://app.lumoravideo.com/sample" class="btn-primary">Start for free ↗</a>
-    <a href="#services" class="btn-ghost">See what we do</a>
+    <a href="https://app.lumoravideo.com/sample" class="btn-primary">Get a free sample ↗</a>
+    <a href="#samples" class="btn-ghost">Watch samples</a>
+  </div>
+
+  <div class="hero-for">
+    <a href="#samples-cars">For car yards →</a>
+    <a href="#samples-stays">For hotels &amp; Airbnbs →</a>
   </div>
 
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-num">4×</div>
-      <div class="stat-label">More inquiries from video listings</div>
+      <div class="stat-num">Free</div>
+      <div class="stat-label">First sample video</div>
     </div>
     <div class="stat-div"></div>
     <div class="stat-item">
-      <div class="stat-num">48h</div>
-      <div class="stat-label">From photos to published content</div>
+      <div class="stat-num">2–3 days</div>
+      <div class="stat-label">Typical turnaround</div>
     </div>
     <div class="stat-div"></div>
     <div class="stat-item">
@@ -983,39 +990,92 @@ footer {
     </div>
     <div class="stat-div"></div>
     <div class="stat-item">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Content, every month</div>
+      <div class="stat-num">Anytime</div>
+      <div class="stat-label">Pause or cancel</div>
     </div>
   </div>
 </section>
 
+<!-- SAMPLES -->
+<section class="samples-wrap" id="samples">
+  <div class="samples-inner">
+    <div class="section-eyebrow">Sample work</div>
+    <h2 class="section-title">See what we make.<br><em>Then send us your photos.</em></h2>
+    <p class="section-sub">Real videos made by Lumora. Tap any clip to play it.</p>
+
+    <div class="sample-group" id="samples-cars">
+      <div class="sample-group-head">
+        <div class="sample-group-title">Car yards</div>
+        <div class="sample-group-note">Listing videos and an AI brand presenter</div>
+      </div>
+      <div class="sample-row">
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/caryard-showcase.mp4#t=0.1" aria-label="Car showcase sample video"></video></div>
+          <figcaption><strong>Car showcase</strong>Listing video · 0:23</figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/caryard-avatar.mp4#t=0.1" aria-label="Brand avatar presenter sample video"></video></div>
+          <figcaption><strong>Brand avatar presenter</strong>Sample for a car yard · 0:14</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sample-group" id="samples-stays">
+      <div class="sample-group-head">
+        <div class="sample-group-title">Hotels &amp; Airbnbs</div>
+        <div class="sample-group-note">Property walkthroughs and lodge stories</div>
+      </div>
+      <div class="sample-row">
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/kazuri-1.mp4#t=0.1" aria-label="Kazuri Diani sample video one"></video></div>
+          <figcaption><strong>Kazuri Diani</strong>Villa video · 0:28</figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/kazuri-2.mp4#t=0.1" aria-label="Kazuri Diani sample video two"></video></div>
+          <figcaption><strong>Kazuri Diani</strong>Villa video · 0:33</figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/rhino-flycatcher.mp4#t=0.1" aria-label="Rhino Watch Paradise Flycatcher sample video"></video></div>
+          <figcaption><strong>Rhino Watch Safari Lodge</strong>Paradise Flycatcher · 0:54</figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="videos/rhino-nest.mp4#t=0.1" aria-label="Rhino Watch bird's nest sample video"></video></div>
+          <figcaption><strong>Rhino Watch Safari Lodge</strong>Bird&rsquo;s nest · 0:31</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="sample-disclaimer">These are sample videos that show the style and quality of our work. Your own video will use your photos and your brand.</p>
+  </div>
+</section>
+
 <!-- PROBLEM -->
-<section style="background: var(--charcoal-2); border-top: 0.5px solid var(--charcoal-3);">
+<section style="border-top: 0.5px solid var(--charcoal-3);">
   <div class="section">
     <div class="section-eyebrow">The problem</div>
-    <h2 class="section-title">Great cars.<br><em>Invisible listings.</em></h2>
-    <p class="section-sub">Most dealerships have the stock. They just don't have the content to sell it faster. Blurry photos and zero video means cars sit longer than they should.</p>
+    <h2 class="section-title">Great stock.<br><em>Easy to scroll past.</em></h2>
+    <p class="section-sub">Whether it is a car on your lot or a room on Airbnb, a listing with weak photos and no video loses attention to the one that has them.</p>
 
     <div class="problem-grid">
       <div class="problem-item">
         <div class="problem-num">01</div>
-        <div class="problem-title">Your photos aren't doing the car justice</div>
-        <div class="problem-text">Phone photos with flat lighting, distracting backgrounds, and poor framing. The car looks worse than it is. Buyers scroll past.</div>
+        <div class="problem-title">Your photos aren&rsquo;t doing the place justice</div>
+        <div class="problem-text">Phone photos with flat lighting, cluttered backgrounds and awkward framing. The car or room looks worse than it is, and buyers and guests scroll past.</div>
       </div>
       <div class="problem-item">
         <div class="problem-num">02</div>
         <div class="problem-title">No video means less reach, less trust</div>
-        <div class="problem-text">Listings with video get 4× more inquiries. Most dealers post none. The algorithm punishes static content on every platform.</div>
+        <div class="problem-text">Video tends to hold attention far better than still photos, and most car yards and small stays post very little of it. Social platforms favour it too.</div>
       </div>
       <div class="problem-item">
         <div class="problem-num">03</div>
         <div class="problem-title">Hiring an agency is slow and expensive</div>
-        <div class="problem-text">A videographer for a single car costs hundreds. A full shoot for your lot? Thousands. And you wait weeks for the edit.</div>
+        <div class="problem-text">A videographer for a single car or a property shoot can cost hundreds to thousands, and the edit can take weeks.</div>
       </div>
       <div class="problem-item">
         <div class="problem-num">04</div>
-        <div class="problem-title">Stock changes faster than your content</div>
-        <div class="problem-text">By the time content is ready, the car is sold. You need content on demand — not a quarterly shoot.</div>
+        <div class="problem-title">Your content can&rsquo;t keep up with your business</div>
+        <div class="problem-text">Cars sell, seasons change and rooms get refreshed. You need content on demand, not a once-a-year shoot.</div>
       </div>
     </div>
   </div>
@@ -1023,7 +1083,7 @@ footer {
 
 <!-- BEFORE / AFTER -->
 <section>
-  <div class="section">
+  <div class="section" style="padding-top: 20px;">
     <div class="section-eyebrow">The difference</div>
     <h2 class="section-title">Before Lumora.<br><em>After Lumora.</em></h2>
 
@@ -1034,13 +1094,12 @@ footer {
           <div class="ba-label">Without Lumora</div>
         </div>
         <div class="ba-body">
-          <div class="ba-car-mock">🚗</div>
           <div class="ba-items">
-            <div class="ba-item"><span class="ba-x">✕</span>Blurry, dark phone photos</div>
-            <div class="ba-item"><span class="ba-x">✕</span>No video content</div>
-            <div class="ba-item"><span class="ba-x">✕</span>Generic, inconsistent social posts</div>
-            <div class="ba-item"><span class="ba-x">✕</span>No brand presenter or voice</div>
-            <div class="ba-item"><span class="ba-x">✕</span>Cars sitting longer on the lot</div>
+            <div class="ba-item"><span class="ba-x">✕</span>Dark, cluttered phone photos</div>
+            <div class="ba-item"><span class="ba-x">✕</span>No video for your listings</div>
+            <div class="ba-item"><span class="ba-x">✕</span>Irregular, inconsistent social posts</div>
+            <div class="ba-item"><span class="ba-x">✕</span>No brand voice or presenter</div>
+            <div class="ba-item"><span class="ba-x">✕</span>Waiting weeks on an agency</div>
           </div>
         </div>
       </div>
@@ -1051,13 +1110,12 @@ footer {
           <div class="ba-label">With Lumora</div>
         </div>
         <div class="ba-body">
-          <div class="ba-car-mock">✨</div>
           <div class="ba-items">
-            <div class="ba-item"><span class="ba-check">✓</span>Studio-quality 4K enhanced images</div>
-            <div class="ba-item"><span class="ba-check">✓</span>Cinematic listing videos from photos</div>
-            <div class="ba-item"><span class="ba-check">✓</span>Branded social reels, weekly</div>
-            <div class="ba-item"><span class="ba-check">✓</span>Your AI brand presenter on every video</div>
-            <div class="ba-item"><span class="ba-check">✓</span>Faster sales, more inquiries</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Enhanced, colour-corrected photos</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Cinematic videos made from your photos</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Social reels ready to post every month</div>
+            <div class="ba-item"><span class="ba-check">✓</span>An AI brand presenter, if you want one</div>
+            <div class="ba-item"><span class="ba-check">✓</span>Finished content in days, not weeks</div>
           </div>
         </div>
       </div>
@@ -1069,59 +1127,59 @@ footer {
 <section class="services-wrap" id="services">
   <div class="services-inner">
     <div class="section-eyebrow">What we do</div>
-    <h2 class="section-title">Four services.<br><em>One monthly subscription.</em></h2>
-    <p class="section-sub">Everything your dealership needs to stand out — delivered to your portal within 48 hours of submission.</p>
+    <h2 class="section-title">Everything you need to post.<br><em>One monthly plan.</em></h2>
+    <p class="section-sub">Built for car yards, hotels and Airbnbs. Your content is delivered to your portal, usually within 2–3 days of you sending photos.</p>
 
     <div class="services-grid">
       <div class="service-card">
         <div class="service-num">01</div>
         <span class="service-icon">📸</span>
-        <div class="service-name">AI Enhanced Car Images</div>
-        <div class="service-desc">Transform ordinary dealer photos into studio-quality images. 4K upscaled, colour corrected, professionally lit — ready for listings and social in hours.</div>
+        <div class="service-name">Enhanced Photos</div>
+        <div class="service-desc">We lift ordinary phone photos: better light, cleaner colour and a more polished look. Ready for your listings and social pages.</div>
         <div class="service-delivers">
-          <div class="deliver-item"><div class="deliver-dot"></div>4K upscale from any photo quality</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Cinematic colour grading and lighting</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Clean backgrounds, distraction removed</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Ready for AutoTrader, Jiji, social media</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Cars: showroom-style, colour-corrected shots</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Stays: brighter, cleaner room and villa photos</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Sharper detail from your existing photos</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Ready for Jiji, Airbnb, Booking.com and Instagram</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">02</div>
         <span class="service-icon">🎬</span>
-        <div class="service-name">Cinematic Listing Videos</div>
-        <div class="service-desc">From your enhanced photos, we create a 30–60 second cinematic video for each car. Dynamic camera movement, voiceover, music. No filming required.</div>
+        <div class="service-name">Cinematic Videos</div>
+        <div class="service-desc">From your photos we make a short cinematic video for each car or property, with smooth camera movement, music and optional voiceover. No filming needed.</div>
         <div class="service-delivers">
-          <div class="deliver-item"><div class="deliver-dot"></div>Parallax and Ken Burns camera movement</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>AI voiceover highlighting key specs</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Licensed background music</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Formatted for YouTube, your website, OTAs</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Cars: listing videos that show off the vehicle</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Stays: room-by-room walkthroughs in your order</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Optional voiceover and captions</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Sized for your website, YouTube and social</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">03</div>
         <span class="service-icon">📱</span>
-        <div class="service-name">Dynamic Social Reels</div>
-        <div class="service-desc">Fast-cut, music-driven reels showcasing your stock or promoting your brand. Built for Instagram, TikTok, and Facebook — the formats that get reach.</div>
+        <div class="service-name">Social Reels</div>
+        <div class="service-desc">Short, music-led reels for Instagram, TikTok and Facebook that keep your page active without you filming anything.</div>
         <div class="service-delivers">
-          <div class="deliver-item"><div class="deliver-dot"></div>Multi-car stock reels</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Seasonal and promotional campaigns</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Trending audio and caption strategy</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>9:16, 4:5, 16:9 format delivery</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>New arrivals, stock highlights and promotions</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Seasonal offers for hotels and stays</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Caption and hashtag suggestions</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>9:16, 4:5 and 16:9 delivery</div>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">04</div>
         <span class="service-icon">🧑‍💼</span>
-        <div class="service-name">Brand Avatar Presenter</div>
-        <div class="service-desc">A hyper-realistic AI presenter built around your brand — consistent face, your dealership's colours and clothing, appearing on every video you choose.</div>
+        <div class="service-name">Brand Avatar Presenter <span class="addon-tag">Add-on</span></div>
+        <div class="service-desc">An AI presenter built around your brand, with a consistent face and your colours, appearing in the videos you choose. Quoted per brand.</div>
         <div class="service-delivers">
           <div class="deliver-item"><div class="deliver-dot"></div>Custom avatar built from your brand assets</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Appears in listing and reel intros/outros</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Appears in intros, outros and reels</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Clothing adjustable per video</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Locked avatar — yours permanently</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Your avatar stays yours</div>
         </div>
       </div>
     </div>
@@ -1137,23 +1195,23 @@ footer {
     <div class="how-steps">
       <div class="how-step">
         <div class="step-circle">1</div>
-        <div class="step-title">Submit photos</div>
-        <div class="step-text">Upload your car photos and a brief via your Lumora portal. Takes 3 minutes per car.</div>
+        <div class="step-title">Send your photos</div>
+        <div class="step-text">Upload photos, drag them into the order you want and label each space or angle. Takes about 2 minutes.</div>
       </div>
       <div class="how-step">
         <div class="step-circle">2</div>
         <div class="step-title">We produce</div>
-        <div class="step-text">Our AI pipeline enhances images, writes the script, generates the voiceover, and assembles your video.</div>
+        <div class="step-text">We enhance the photos, write the script and assemble your video using our AI production tools.</div>
       </div>
       <div class="how-step">
         <div class="step-circle">3</div>
-        <div class="step-title">You're notified</div>
-        <div class="step-text">WhatsApp and email alert when your content is ready. Usually within 48 hours.</div>
+        <div class="step-title">You&rsquo;re notified</div>
+        <div class="step-text">We message you on WhatsApp or email when your content is ready, usually within 2–3 days.</div>
       </div>
       <div class="how-step">
         <div class="step-circle">4</div>
-        <div class="step-title">Download & post</div>
-        <div class="step-text">Log into your branded portal, download your videos and images, post. Done.</div>
+        <div class="step-title">Download &amp; post</div>
+        <div class="step-text">Open your portal with your access code, download your videos and images, and post.</div>
       </div>
     </div>
   </div>
@@ -1163,7 +1221,13 @@ footer {
 <section class="pricing-wrap" id="pricing">
   <div class="pricing-inner">
     <div class="section-eyebrow">Pricing</div>
-    <h2 class="section-title">One flat monthly fee.<br><em>No surprises.</em></h2>
+    <h2 class="section-title">One flat monthly fee.<br><em>Pause or cancel anytime.</em></h2>
+    <p class="section-sub">A &ldquo;video&rdquo; is one finished listing video or social reel. Same plans for car yards, hotels and Airbnbs.</p>
+
+    <div class="pricing-promise">
+      <span>No contracts. Pause or cancel anytime</span>
+      <span>Not happy with your first video? We refund your first month</span>
+    </div>
 
     <div class="pricing-toggle">
       <span class="toggle-label active" id="label-intl">International (USD)</span>
@@ -1184,13 +1248,14 @@ footer {
         <div class="price-local" id="local-1">KES 15,000 / month</div>
         <div class="price-divider"></div>
         <div class="price-features">
-          <div class="price-feature"><span class="pf-check">✓</span>10 enhanced car images / month</div>
-          <div class="price-feature"><span class="pf-check">✓</span>4 cinematic listing videos</div>
-          <div class="price-feature"><span class="pf-check">✓</span>2 social reels</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Branded portal access</div>
+          <div class="price-feature"><span class="pf-check">✓</span>4 finished videos / month</div>
+          <div class="price-feature"><span class="pf-check">✓</span>10 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Vertical 9:16 delivery</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Portal access to download</div>
           <div class="price-feature"><span class="pf-check">✓</span>WhatsApp + email delivery alerts</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Delivered in about 3 days</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get started</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
       </div>
 
       <div class="price-card featured">
@@ -1204,14 +1269,14 @@ footer {
         <div class="price-local" id="local-2">KES 30,000 / month</div>
         <div class="price-divider"></div>
         <div class="price-features">
-          <div class="price-feature"><span class="pf-check">✓</span>25 enhanced car images / month</div>
-          <div class="price-feature"><span class="pf-check">✓</span>10 cinematic listing videos</div>
-          <div class="price-feature"><span class="pf-check">✓</span>6 social reels + 1 brand campaign</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Brand avatar presenter included</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Multi-format per video (9:16, 4:5, 16:9)</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Priority 24hr turnaround</div>
+          <div class="price-feature"><span class="pf-check">✓</span>10 finished videos / month</div>
+          <div class="price-feature"><span class="pf-check">✓</span>25 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>All formats: 9:16, 4:5 and 16:9</div>
+          <div class="price-feature"><span class="pf-check">✓</span>1 seasonal or promo campaign</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Portal access + delivery alerts</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get started</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
       </div>
 
       <div class="price-card">
@@ -1224,24 +1289,18 @@ footer {
         <div class="price-local" id="local-3">KES 50,000 / month</div>
         <div class="price-divider"></div>
         <div class="price-features">
-          <div class="price-feature"><span class="pf-check">✓</span>Unlimited enhanced images</div>
-          <div class="price-feature"><span class="pf-check">✓</span>20 cinematic listing videos</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Unlimited social reels</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Avatar + seasonal campaign videos</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Dedicated content strategist</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Same-day turnaround</div>
+          <div class="price-feature"><span class="pf-check">✓</span>20 finished videos / month</div>
+          <div class="price-feature"><span class="pf-check">✓</span>50 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>All formats: 9:16, 4:5 and 16:9</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Monthly 20-minute content review call</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Brand avatar add-on available</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get started</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- TESTIMONIAL PLACEHOLDER -->
-<section class="testi-wrap">
-  <div class="testi-inner">
-    <div class="testi-quote">"We went from posting blurry photos to having <em>cinematic content</em> for every car on the lot. Our Instagram reach doubled in the first month."</div>
-    <div class="testi-attr">Early client · Nairobi, Kenya</div>
+    <p class="pricing-note">The brand avatar presenter is an optional add-on, quoted per brand. Need more than 20 videos a month? Message us and we&rsquo;ll set up a custom plan.</p>
   </div>
 </section>
 
@@ -1249,11 +1308,11 @@ footer {
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <h2 class="cta-title">Ready to see<br><em>your first video?</em></h2>
-  <p class="cta-sub">Send us a few photos of a car or a property and we'll turn them into a finished video. Free sample, no card needed.</p>
+  <p class="cta-sub">Send us a few photos of a car or a property and we&rsquo;ll turn them into a finished video. Free sample, no card needed.</p>
   <div class="cta-form">
     <a href="https://app.lumoravideo.com/sample" class="btn-primary">Get a free sample</a>
   </div>
-  <div class="cta-note">No commitment. Takes about 2 minutes. Your sample is ready within 48 hours.</div>
+  <div class="cta-note">No commitment. Takes about 2 minutes. Your sample is usually ready within 2–3 days.</div>
 </section>
 
 <!-- FOOTER -->
@@ -1263,6 +1322,7 @@ footer {
     <div class="footer-tagline">by MI Automations · lumoravideo.com</div>
   </div>
   <ul class="footer-links">
+    <li><a href="#samples">Samples</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="mailto:hello@lumoravideo.com">Contact</a></li>
@@ -1294,6 +1354,12 @@ function toggleCurrency() {
   document.getElementById('local-2').style.display = isLocal ? 'none' : 'block';
   document.getElementById('local-3').style.display = isLocal ? 'none' : 'block';
 }
+
+// Only one sample plays at a time
+document.addEventListener('play', function (e) {
+  if (e.target.tagName !== 'VIDEO') return;
+  document.querySelectorAll('.sample video').forEach(function (v) { if (v !== e.target) v.pause(); });
+}, true);
 </script>
 
 </body>
