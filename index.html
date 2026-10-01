@@ -872,18 +872,6 @@ footer {
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
 
-/* ─── HERO EXTRAS ─── */
-.hero-for {
-  display: flex;
-  gap: 24px;
-  margin-top: 28px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  animation: fadeUp 0.8s 0.3s ease both;
-}
-.hero-for a { color: var(--muted); text-decoration: none; border-bottom: 0.5px solid var(--charcoal-4); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-.hero-for a:hover { color: var(--gold); border-color: var(--gold); }
-
 /* ─── SAMPLES ─── */
 .samples-wrap { background: var(--charcoal-2); border-top: 0.5px solid var(--charcoal-3); }
 .samples-inner { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
@@ -906,6 +894,106 @@ footer {
 .sample figcaption strong { display: block; font-weight: 500; color: var(--ivory); font-size: 13px; }
 .sample-disclaimer { margin-top: 40px; font-size: 12px; color: var(--muted-2); max-width: 640px; line-height: 1.7; }
 
+
+/* ─── HERO 2.0 ─── */
+.hero { min-height: auto; display: block; text-align: left; padding: 128px 48px 96px; }
+.hero-wrap {
+  position: relative; z-index: 1; max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; align-items: center;
+}
+.hero-kicker { font-size: 13px; color: var(--muted); margin-bottom: 22px; letter-spacing: 0.02em; animation: fadeUp 0.7s ease both; }
+.niche-switch {
+  display: inline-flex; padding: 4px; border-radius: 999px; gap: 4px;
+  background: var(--charcoal-2); border: 0.5px solid var(--charcoal-4); margin-bottom: 28px;
+  animation: fadeUp 0.7s 0.05s ease both;
+}
+.niche-btn {
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.niche-btn:hover { color: var(--ivory); }
+.niche-btn.is-on { background: var(--gold); color: var(--charcoal); }
+.niche-btn:focus-visible, .device button:focus-visible, .clip-dot:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--ivory);
+  font-size: clamp(40px, 4.8vw, 68px); line-height: 1.04; letter-spacing: -0.015em;
+  max-width: 17ch; margin-bottom: 24px; animation: fadeUp 0.7s 0.1s ease both;
+  transition: opacity 0.25s ease;
+}
+.hero-lede { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 46ch; margin-bottom: 36px; animation: fadeUp 0.7s 0.15s ease both; transition: opacity 0.25s ease; }
+.hero-h1.swap, .hero-lede.swap { opacity: 0; }
+.hero .hero-actions { justify-content: flex-start; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-trust { margin-top: 20px; font-size: 13px; color: var(--muted-2); animation: fadeUp 0.7s 0.25s ease both; }
+
+.hero-stage { position: relative; display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 22px; animation: fadeUp 0.9s 0.2s ease both; }
+.hero-stage .stage-caption { grid-column: 1 / -1; }
+.storyboard { display: flex; flex-direction: column; gap: 10px; }
+.sb-frame {
+  width: 74px; height: 132px; border-radius: 6px; background: var(--charcoal-2);
+  border: 0.5px solid var(--charcoal-4); display: block;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1), opacity 0.5s;
+}
+.sb-frame:nth-child(odd) { transform: translateX(-6px); }
+.sb-frame.fresh { animation: frameIn 0.5s cubic-bezier(.2,.8,.2,1); border-color: var(--gold); }
+@keyframes frameIn { from { opacity: 0; transform: translateY(-14px) scale(0.96); } to { opacity: 1; } }
+.device.landscape ~ * .sb-frame, .hero-stage.is-wide .sb-frame { width: 112px; height: 63px; }
+
+.device {
+  position: relative; width: 300px; aspect-ratio: 9 / 16; border-radius: 34px; overflow: hidden;
+  background: #000; border: 6px solid var(--charcoal-3);
+  box-shadow: 0 30px 80px -20px rgba(201,136,42,0.35), 0 0 0 0.5px var(--charcoal-4);
+  transition: width 0.6s cubic-bezier(.2,.8,.2,1), aspect-ratio 0.6s cubic-bezier(.2,.8,.2,1), border-radius 0.6s;
+  transform: perspective(1200px) rotateY(var(--ry, -6deg)) rotateX(var(--rx, 2deg));
+}
+.hero-stage.is-wide .device { width: 440px; aspect-ratio: 16 / 9; border-radius: 22px; }
+.device video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-stage.is-wide .device video { object-fit: contain; }
+.device-sound, .device-play {
+  position: absolute; font-family: 'DM Sans', sans-serif; cursor: pointer; border: 0;
+}
+.device-sound {
+  right: 12px; top: 12px; font-size: 12px; padding: 7px 12px; border-radius: 999px;
+  background: rgba(14,14,15,0.7); color: var(--ivory); backdrop-filter: blur(6px);
+}
+.device-sound[aria-pressed="true"] { background: var(--gold); color: var(--charcoal); }
+.device-play {
+  inset: 0; margin: auto; width: 150px; height: 46px; border-radius: 999px;
+  background: var(--gold); color: var(--charcoal); font-size: 14px; font-weight: 500;
+}
+.device-progress { position: absolute; left: 14px; right: 14px; bottom: 12px; height: 2px; background: rgba(245,240,232,0.2); border-radius: 2px; overflow: hidden; }
+.device-progress span { display: block; height: 100%; width: 0; background: var(--gold); }
+
+.stage-caption { display: flex; justify-content: space-between; align-items: center; gap: 16px; max-width: 420px; width: 100%; margin: 6px auto 0; }
+.stage-caption strong { display: block; font-weight: 500; color: var(--ivory); font-size: 14px; }
+.stage-caption span { font-size: 12px; color: var(--muted); }
+.clip-dots { display: flex; gap: 8px; }
+.clip-dot {
+  width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid var(--charcoal-4);
+  background: var(--charcoal-2); color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer;
+}
+.clip-dot[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 960px) {
+  .hero { padding: 112px 20px 64px; }
+  .hero-wrap { grid-template-columns: 1fr; gap: 44px; }
+  .hero-h1 { max-width: 16ch; }
+  .storyboard { display: none; }
+  .hero-stage { grid-template-columns: auto; }
+  .device { width: min(280px, 72vw); transform: none; }
+  .hero-stage.is-wide .device { width: min(100%, 440px); }
+}
+@media (max-width: 768px) {
+  .hero .hero-actions { flex-direction: column; align-items: stretch; max-width: none; }
+  .hero .hero-actions a { justify-content: center; text-align: center; }
+  .niche-switch { display: flex; width: 100%; }
+  .niche-btn { flex: 1; padding: 11px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero *, .hero { animation: none !important; transition: none !important; }
+  .device { transform: none; }
+}
+
 /* ─── PRICING EXTRAS ─── */
 .pricing-promise {
   display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 28px;
@@ -921,9 +1009,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero-for { flex-direction: column; gap: 12px; align-items: center; }
-  .hero-actions { flex-direction: column; width: 100%; max-width: 300px; }
-  .hero-actions a { width: 100%; justify-content: center; text-align: center; }
   .samples-inner { padding: 60px 20px; }
   .sample-row {
     flex-wrap: nowrap; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -950,48 +1035,53 @@ footer {
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <div class="hero-eyebrow">AI video for car yards, hotels &amp; Airbnbs</div>
+  <div class="hero-wrap">
+    <div class="hero-copy">
+      <p class="hero-kicker">AI video for car yards, hotels and Airbnbs</p>
 
-  <h1 class="hero-title">Your photos,</h1>
-  <h2 class="hero-title-2">turned into video.</h2>
+      <div class="niche-switch" role="tablist" aria-label="Choose your business">
+        <button type="button" role="tab" class="niche-btn" data-niche="cars" aria-selected="false">I sell cars</button>
+        <button type="button" role="tab" class="niche-btn is-on" data-niche="stays" aria-selected="true">I host guests</button>
+      </div>
 
-  <p class="hero-sub">
-    Cinematic videos and social reels made from the photos you already have. No film crew. No agency fees. One simple monthly plan you can pause or cancel anytime.
-  </p>
+      <h1 class="hero-h1" id="hero-h1">Turn room photos into videos guests can walk through.</h1>
 
-  <div class="hero-actions">
-    <a href="https://app.lumoravideo.com/sample" class="btn-primary">Get a free sample ↗</a>
-    <a href="#samples" class="btn-ghost">Watch samples</a>
-  </div>
+      <p class="hero-lede" id="hero-lede">Send us the photos you already have. We send back cinematic walkthroughs and reels for Airbnb, Booking.com and Instagram, usually in 2–3 days.</p>
 
-  <div class="hero-for">
-    <a href="#samples-cars">For car yards →</a>
-    <a href="#samples-stays">For hotels &amp; Airbnbs →</a>
-  </div>
+      <div class="hero-actions">
+        <a href="https://app.lumoravideo.com/sample" class="btn-primary" id="hero-cta">Get a free property video</a>
+        <a href="#samples" class="btn-ghost">Watch all samples</a>
+      </div>
 
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">First sample video</div>
+      <p class="hero-trust">Free sample, no card needed. Plans you can pause or cancel anytime.</p>
     </div>
-    <div class="stat-div"></div>
-    <div class="stat-item">
-      <div class="stat-num">2–3 days</div>
-      <div class="stat-label">Typical turnaround</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Film crew needed</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item">
-      <div class="stat-num">Anytime</div>
-      <div class="stat-label">Pause or cancel</div>
+
+    <div class="hero-stage" aria-label="Sample video playing">
+      <div class="storyboard" aria-hidden="true">
+        <canvas class="sb-frame"></canvas>
+        <canvas class="sb-frame"></canvas>
+        <canvas class="sb-frame"></canvas>
+        <canvas class="sb-frame"></canvas>
+      </div>
+
+      <div class="device" id="device">
+        <video id="hero-video" muted playsinline preload="metadata"></video>
+        <button type="button" class="device-play" id="hero-play" hidden>Play sample</button>
+        <button type="button" class="device-sound" id="hero-sound" aria-pressed="false">Sound off</button>
+        <div class="device-progress"><span id="hero-progress"></span></div>
+      </div>
+
+      <div class="stage-caption">
+        <div>
+          <strong id="clip-title">Kazuri Diani</strong>
+          <span id="clip-meta">Villa walkthrough, Diani Beach</span>
+        </div>
+        <div class="clip-dots" id="clip-dots" role="group" aria-label="Choose a sample"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1226,7 +1316,7 @@ footer {
 
     <div class="pricing-promise">
       <span>No contracts. Pause or cancel anytime</span>
-      <span>Not happy with your first video? We refund your first month</span>
+      <span>Try a free sample video before you pay anything</span>
     </div>
 
     <div class="pricing-toggle">
@@ -1357,9 +1447,172 @@ function toggleCurrency() {
 
 // Only one sample plays at a time
 document.addEventListener('play', function (e) {
-  if (e.target.tagName !== 'VIDEO') return;
+  if (e.target.tagName !== 'VIDEO' || e.target.id === 'hero-video') return;
   document.querySelectorAll('.sample video').forEach(function (v) { if (v !== e.target) v.pause(); });
 }, true);
+// ─── Hero: niche switch, live sample, storyboard ───
+(function () {
+  var COPY = {
+    stays: {
+      h1: 'Turn room photos into videos guests can walk through.',
+      lede: 'Send us the photos you already have. We send back cinematic walkthroughs and reels for Airbnb, Booking.com and Instagram, usually in 2–3 days.',
+      cta: 'Get a free property video',
+      clips: [
+        { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa walkthrough, Diani Beach' },
+        { src: 'Videos/Kazuri-2.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa reel, Diani Beach' },
+        { src: 'Videos/Rhino-Flycatcher.Mp4.mp4', title: 'Rhino Watch Safari Lodge', meta: 'Paradise Flycatcher, lodge story' }
+      ]
+    },
+    cars: {
+      h1: 'Turn car photos into videos that sell the car before the test drive.',
+      lede: 'Send us the photos from your lot. We send back cinematic listing videos and reels for Jiji, Instagram and TikTok, usually in 2–3 days.',
+      cta: 'Get a free car video',
+      clips: [
+        { src: 'Videos/Caryard-Showcase.Mp4.mp4', title: 'Car showcase', meta: 'Listing video for a car yard' },
+        { src: 'Videos/caryard-avatar.mp4.mp4', title: 'Brand avatar presenter', meta: 'AI presenter for a car yard' }
+      ]
+    }
+  };
+
+  var video = document.getElementById('hero-video');
+  if (!video) return;
+  var stage = document.querySelector('.hero-stage');
+  var device = document.getElementById('device');
+  var playBtn = document.getElementById('hero-play');
+  var soundBtn = document.getElementById('hero-sound');
+  var bar = document.getElementById('hero-progress');
+  var dots = document.getElementById('clip-dots');
+  var h1 = document.getElementById('hero-h1');
+  var lede = document.getElementById('hero-lede');
+  var cta = document.getElementById('hero-cta');
+  var titleEl = document.getElementById('clip-title');
+  var metaEl = document.getElementById('clip-meta');
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.sb-frame'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.niche-btn'));
+
+  var conn = navigator.connection || {};
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lightMode = reduce || conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '');
+  var niche = 'stays', idx = 0, inView = true, userStarted = false, grabTimer = null;
+
+  function renderDots() {
+    dots.innerHTML = '';
+    COPY[niche].clips.forEach(function (c, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'clip-dot'; b.textContent = i + 1;
+      b.setAttribute('aria-label', 'Play sample ' + (i + 1) + ': ' + c.title);
+      b.setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+      b.addEventListener('click', function () { userStarted = true; load(i); });
+      dots.appendChild(b);
+    });
+  }
+
+  function clearBoard() {
+    frames.forEach(function (f) { var x = f.getContext('2d'); x.clearRect(0, 0, f.width, f.height); f.classList.remove('fresh'); });
+  }
+
+  function tryPlay() {
+    if (!inView) return;
+    if (lightMode && !userStarted) { playBtn.hidden = false; return; }
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { playBtn.hidden = false; });
+  }
+
+  function load(i) {
+    idx = i;
+    var c = COPY[niche].clips[idx];
+    titleEl.textContent = c.title; metaEl.textContent = c.meta;
+    renderDots(); clearBoard();
+    bar.style.width = '0';
+    video.src = c.src + '#t=0.1';
+    video.load();
+    tryPlay();
+  }
+
+  function setNiche(n) {
+    if (n === niche) return;
+    niche = n;
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-niche') === n;
+      t.classList.toggle('is-on', on); t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    h1.classList.add('swap'); lede.classList.add('swap');
+    setTimeout(function () {
+      h1.textContent = COPY[n].h1; lede.textContent = COPY[n].lede; cta.textContent = COPY[n].cta;
+      h1.classList.remove('swap'); lede.classList.remove('swap');
+    }, 220);
+    load(0);
+  }
+
+  function grab() {
+    if (video.paused || video.readyState < 2 || !video.videoWidth) return;
+    var last = frames[frames.length - 1];
+    // shift frames down: copy each canvas into the next
+    for (var k = frames.length - 1; k > 0; k--) {
+      var dst = frames[k], src = frames[k - 1];
+      dst.width = src.width; dst.height = src.height;
+      if (src.width) dst.getContext('2d').drawImage(src, 0, 0);
+    }
+    var top = frames[0];
+    var w = 160, h = Math.round(w * video.videoHeight / video.videoWidth);
+    top.width = w; top.height = h;
+    try { top.getContext('2d').drawImage(video, 0, 0, w, h); } catch (e) { return; }
+    top.classList.remove('fresh'); void top.offsetWidth; top.classList.add('fresh');
+  }
+
+  video.addEventListener('loadedmetadata', function () {
+    stage.classList.toggle('is-wide', video.videoWidth > video.videoHeight);
+  });
+  video.addEventListener('playing', function () {
+    playBtn.hidden = true;
+    clearInterval(grabTimer); grab(); grabTimer = setInterval(grab, 1600);
+  });
+  video.addEventListener('pause', function () { clearInterval(grabTimer); });
+  video.addEventListener('timeupdate', function () {
+    if (video.duration) bar.style.width = (100 * video.currentTime / video.duration) + '%';
+  });
+  video.addEventListener('ended', function () {
+    var list = COPY[niche].clips;
+    load((idx + 1) % list.length);
+  });
+
+  playBtn.addEventListener('click', function () { userStarted = true; playBtn.hidden = true; video.play(); });
+  soundBtn.addEventListener('click', function () {
+    userStarted = true;
+    video.muted = !video.muted;
+    soundBtn.setAttribute('aria-pressed', video.muted ? 'false' : 'true');
+    soundBtn.textContent = video.muted ? 'Sound off' : 'Sound on';
+    if (video.paused) video.play();
+  });
+  tabs.forEach(function (t) { t.addEventListener('click', function () { setNiche(t.getAttribute('data-niche')); }); });
+
+  // Pause hero video when it scrolls away, to save data and battery
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      inView = es[0].isIntersecting;
+      if (!inView) video.pause(); else if (!video.ended && (!lightMode || userStarted)) tryPlay();
+    }, { threshold: 0.25 }).observe(device);
+  }
+
+  // Gentle tilt toward the pointer (desktop only)
+  if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelector('.hero').addEventListener('mousemove', function (e) {
+      var r = device.getBoundingClientRect();
+      var dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+      var dy = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+      device.style.setProperty('--ry', (dx * 14 - 4).toFixed(2) + 'deg');
+      device.style.setProperty('--rx', (-dy * 8).toFixed(2) + 'deg');
+    });
+  }
+
+  // Pause sample-section videos when the hero plays, and vice versa
+  document.addEventListener('play', function (e) {
+    if (e.target !== video && e.target.tagName === 'VIDEO') video.pause();
+  }, true);
+
+  load(0);
+})();
+
 </script>
 
 </body>
