@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumora — AI video for car yards, hotels &amp; Airbnbs</title>
-<meta name="description" content="Cinematic videos and social reels made from the photos you already have. For car yards, hotels and Airbnbs. Free sample, pause or cancel anytime.">
+<title>Lumora — AI video for car yards, real estate, hotels &amp; Airbnbs</title>
+<meta name="description" content="Cinematic videos and social reels made from the photos you already have. For car yards, real estate agents, hotels and Airbnbs. Free sample, pause or cancel anytime.">
 <meta property="og:title" content="Lumora — Your photos, turned into video">
-<meta property="og:description" content="Cinematic videos and social reels for car yards, hotels and Airbnbs. Get a free sample.">
+<meta property="og:description" content="Cinematic videos and social reels for car yards, real estate, hotels and Airbnbs. Get a free sample.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -851,6 +851,31 @@ footer {
   color: var(--muted-2);
 }
 
+/* ─── PER-LISTING OFFER ─── */
+.listing-offer {
+  margin-top: 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  padding: 28px 32px;
+  border: 0.5px solid var(--charcoal-4);
+  border-radius: 12px;
+  background: var(--charcoal-2);
+}
+.listing-offer-copy { max-width: 560px; }
+.listing-offer-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--ivory); margin: 6px 0 8px; line-height: 1.2; }
+.listing-offer-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.listing-offer-price { min-width: 220px; text-align: center; }
+.listing-offer-price .price-amount { justify-content: center; }
+.listing-offer-price .price-cta { margin-top: 14px; }
+.nav-login-mobile { display: none; }
+@media (max-width: 768px) {
+  .listing-offer { flex-direction: column; align-items: stretch; text-align: left; padding: 24px 20px; gap: 18px; }
+  .listing-offer-price { min-width: 0; }
+  .nav-login-mobile {
+    display: inline-block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ivory); text-decoration: none; padding: 8px 14px; border: 0.5px solid var(--charcoal-4); border-radius: 4px;
+  }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
@@ -1030,8 +1055,10 @@ footer {
     <li><a href="#services">Services</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://app.lumoravideo.com/login">Log in</a></li>
     <li><a href="https://app.lumoravideo.com/sample" class="nav-cta">Get a free sample</a></li>
   </ul>
+  <a href="https://app.lumoravideo.com/login" class="nav-login-mobile">Log in</a>
 </nav>
 
 <!-- HERO -->
@@ -1041,11 +1068,12 @@ footer {
 
   <div class="hero-wrap">
     <div class="hero-copy">
-      <p class="hero-kicker">AI video for car yards, hotels and Airbnbs</p>
+      <p class="hero-kicker">AI video for car yards, real estate, hotels and Airbnbs</p>
 
       <div class="niche-switch" role="tablist" aria-label="Choose your business">
-        <button type="button" role="tab" class="niche-btn" data-niche="cars" aria-selected="false">I sell cars</button>
         <button type="button" role="tab" class="niche-btn is-on" data-niche="stays" aria-selected="true">I host guests</button>
+        <button type="button" role="tab" class="niche-btn" data-niche="homes" aria-selected="false">I sell property</button>
+        <button type="button" role="tab" class="niche-btn" data-niche="cars" aria-selected="false">I sell cars</button>
       </div>
 
       <h1 class="hero-h1" id="hero-h1">Turn room photos into videos guests can walk through.</h1>
@@ -1218,19 +1246,20 @@ footer {
   <div class="services-inner">
     <div class="section-eyebrow">What we do</div>
     <h2 class="section-title">Everything you need to post.<br><em>One monthly plan.</em></h2>
-    <p class="section-sub">Built for car yards, hotels and Airbnbs. Your content is delivered to your portal, usually within 2–3 days of you sending photos.</p>
+    <p class="section-sub">Built for car yards, real estate agents and developers, hotels and Airbnbs. Your content is delivered to your portal, usually within 2–3 days of you sending photos.</p>
 
     <div class="services-grid">
       <div class="service-card">
         <div class="service-num">01</div>
         <span class="service-icon">📸</span>
-        <div class="service-name">Enhanced Photos</div>
-        <div class="service-desc">We lift ordinary phone photos: better light, cleaner colour and a more polished look. Ready for your listings and social pages.</div>
+        <div class="service-name">Retouched Photos</div>
+        <div class="service-desc">Every photo is professionally retouched: better light, true colour and sharper detail, while the room, car or view stays exactly as it is. Ready for your listings and social pages.</div>
         <div class="service-delivers">
           <div class="deliver-item"><div class="deliver-dot"></div>Cars: showroom-style, colour-corrected shots</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Stays: brighter, cleaner room and villa photos</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Property: honest, magazine-quality listing photos</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Sharper detail from your existing photos</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Ready for Jiji, Airbnb, Booking.com and Instagram</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Ready for Jiji, Property24, Airbnb and Instagram</div>
         </div>
       </div>
 
@@ -1238,10 +1267,11 @@ footer {
         <div class="service-num">02</div>
         <span class="service-icon">🎬</span>
         <div class="service-name">Cinematic Videos</div>
-        <div class="service-desc">From your photos we make a short cinematic video for each car or property, with smooth camera movement, music and optional voiceover. No filming needed.</div>
+        <div class="service-desc">From your photos we make a short cinematic video for each car, listing or stay, with smooth camera movement, music and optional voiceover. No filming needed.</div>
         <div class="service-delivers">
           <div class="deliver-item"><div class="deliver-dot"></div>Cars: listing videos that show off the vehicle</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Stays: room-by-room walkthroughs in your order</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Property: listing tours, rentals, plots and off-plan launches</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Optional voiceover and captions</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Sized for your website, YouTube and social</div>
         </div>
@@ -1254,7 +1284,7 @@ footer {
         <div class="service-desc">Short, music-led reels for Instagram, TikTok and Facebook that keep your page active without you filming anything.</div>
         <div class="service-delivers">
           <div class="deliver-item"><div class="deliver-dot"></div>New arrivals, stock highlights and promotions</div>
-          <div class="deliver-item"><div class="deliver-dot"></div>Seasonal offers for hotels and stays</div>
+          <div class="deliver-item"><div class="deliver-dot"></div>Seasonal offers, open houses and new listings</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Caption and hashtag suggestions</div>
           <div class="deliver-item"><div class="deliver-dot"></div>9:16, 4:5 and 16:9 delivery</div>
         </div>
@@ -1312,7 +1342,7 @@ footer {
   <div class="pricing-inner">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">One flat monthly fee.<br><em>Pause or cancel anytime.</em></h2>
-    <p class="section-sub">A &ldquo;video&rdquo; is one finished listing video or social reel. Same plans for car yards, hotels and Airbnbs.</p>
+    <p class="section-sub">A &ldquo;video&rdquo; is one finished listing video or social reel. Same plans for car yards, real estate, hotels and Airbnbs.</p>
 
     <div class="pricing-promise">
       <span>No contracts. Pause or cancel anytime</span>
@@ -1339,10 +1369,10 @@ footer {
         <div class="price-divider"></div>
         <div class="price-features">
           <div class="price-feature"><span class="pf-check">✓</span>4 finished videos / month</div>
-          <div class="price-feature"><span class="pf-check">✓</span>10 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Every photo professionally retouched</div>
           <div class="price-feature"><span class="pf-check">✓</span>Vertical 9:16 delivery</div>
           <div class="price-feature"><span class="pf-check">✓</span>Portal access to download</div>
-          <div class="price-feature"><span class="pf-check">✓</span>WhatsApp + email delivery alerts</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Voiceover and captions included</div>
           <div class="price-feature"><span class="pf-check">✓</span>Delivered in about 3 days</div>
         </div>
         <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
@@ -1360,11 +1390,11 @@ footer {
         <div class="price-divider"></div>
         <div class="price-features">
           <div class="price-feature"><span class="pf-check">✓</span>10 finished videos / month</div>
-          <div class="price-feature"><span class="pf-check">✓</span>25 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Every photo professionally retouched</div>
           <div class="price-feature"><span class="pf-check">✓</span>All formats: 9:16, 4:5 and 16:9</div>
           <div class="price-feature"><span class="pf-check">✓</span>1 seasonal or promo campaign</div>
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
-          <div class="price-feature"><span class="pf-check">✓</span>Portal access + delivery alerts</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Portal access to download</div>
         </div>
         <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
       </div>
@@ -1380,13 +1410,27 @@ footer {
         <div class="price-divider"></div>
         <div class="price-features">
           <div class="price-feature"><span class="pf-check">✓</span>20 finished videos / month</div>
-          <div class="price-feature"><span class="pf-check">✓</span>50 enhanced photos</div>
+          <div class="price-feature"><span class="pf-check">✓</span>Every photo professionally retouched</div>
           <div class="price-feature"><span class="pf-check">✓</span>All formats: 9:16, 4:5 and 16:9</div>
           <div class="price-feature"><span class="pf-check">✓</span>Monthly 20-minute content review call</div>
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
           <div class="price-feature"><span class="pf-check">✓</span>Brand avatar add-on available</div>
         </div>
         <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
+      </div>
+    </div>
+
+    <div class="listing-offer">
+      <div class="listing-offer-copy">
+        <div class="price-tier">Real estate · Pay per listing</div>
+        <div class="listing-offer-title">One listing, one video. No plan needed.</div>
+        <div class="listing-offer-desc">For agents and developers with a home, rental, plot or off-plan project to move. Every photo retouched, a cinematic listing tour in 9:16 and 16:9, voiceover and captions.</div>
+      </div>
+      <div class="listing-offer-price">
+        <div class="price-amount"><span class="price-currency" id="curr-4">$</span><span class="price-num" id="price-4">90</span></div>
+        <div class="price-period">per listing</div>
+        <div class="price-local" id="local-4">KES 4,000 per listing</div>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free listing video</a>
       </div>
     </div>
 
@@ -1415,6 +1459,7 @@ footer {
     <li><a href="#samples">Samples</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://app.lumoravideo.com/login">Log in</a></li>
     <li><a href="mailto:hello@lumoravideo.com">Contact</a></li>
   </ul>
   <div class="footer-copy">© 2026 Lumora · MI Automations</div>
@@ -1423,10 +1468,10 @@ footer {
 <script>
 var isLocal = false;
 var prices = {
-  intl: ['350','650','1000'],
-  local: ['15,000','30,000','50,000'],
-  currIntl: ['$','$','$'],
-  currLocal: ['KES ','KES ','KES ']
+  intl: ['350','650','1000','90'],
+  local: ['15,000','30,000','50,000','4,000'],
+  currIntl: ['$','$','$','$'],
+  currLocal: ['KES ','KES ','KES ','KES ']
 };
 
 function toggleCurrency() {
@@ -1436,13 +1481,15 @@ function toggleCurrency() {
   document.getElementById('label-intl').classList.toggle('active', !isLocal);
   document.getElementById('label-local').classList.toggle('active', isLocal);
 
-  for (var i = 1; i <= 3; i++) {
+  for (var i = 1; i <= 4; i++) {
+    if (!document.getElementById('price-' + i) || prices.local[i-1] == null) continue;
     document.getElementById('price-' + i).textContent = isLocal ? prices.local[i-1] : prices.intl[i-1];
     document.getElementById('curr-' + i).textContent = isLocal ? prices.currLocal[i-1] : prices.currIntl[i-1];
   }
   document.getElementById('local-1').style.display = isLocal ? 'none' : 'block';
   document.getElementById('local-2').style.display = isLocal ? 'none' : 'block';
   document.getElementById('local-3').style.display = isLocal ? 'none' : 'block';
+  if (document.getElementById('local-4')) document.getElementById('local-4').style.display = isLocal ? 'none' : 'block';
 }
 
 // Only one sample plays at a time
@@ -1461,6 +1508,14 @@ document.addEventListener('play', function (e) {
         { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa walkthrough, Diani Beach' },
         { src: 'Videos/Kazuri-2.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa reel, Diani Beach' },
         { src: 'Videos/Rhino-Flycatcher.Mp4.mp4', title: 'Rhino Watch Safari Lodge', meta: 'Paradise Flycatcher, lodge story' }
+      ]
+    },
+    homes: {
+      h1: 'Turn listing photos into viewings buyers can take from their phone.',
+      lede: 'Send us the photos of the home, plot or development. We send back cinematic listing tours and reels for Property24, BuyRentKenya, Instagram and WhatsApp, usually in 2–3 days.',
+      cta: 'Get a free listing video',
+      clips: [
+        { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Property walkthrough', meta: 'Room-by-room tour (villa example)' }
       ]
     },
     cars: {
