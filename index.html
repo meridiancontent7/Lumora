@@ -1141,16 +1141,16 @@ footer {
     <div class="sample-group" id="samples-homes">
       <div class="sample-group-head">
         <div class="sample-group-title">Real estate</div>
-        <div class="sample-group-note">Brand presenters for agencies and developers, realistic or animated</div>
+        <div class="sample-group-note">Real Estate Agency Samples</div>
       </div>
       <div class="sample-row">
         <figure class="sample">
-          <div class="sample-frame"><video controls playsinline preload="metadata" src="Videos/Laser-Properties-Avatar.mp4#t=0.1" aria-label="Laser Properties realistic AI presenter sample video"></video></div>
-          <figcaption><strong>Laser Properties</strong>Realistic AI presenter<span class="sample-len"></span></figcaption>
+          <div class="sample-frame"><video controls playsinline preload="metadata" aria-label="Real estate agency sample: realistic AI presenter"><source src="Videos/Laser-Properties-Avatar.mp4#t=0.1" type="video/mp4"><source src="Videos/Laser-Properties-Avatar.mp4.mp4#t=0.1" type="video/mp4"><source src="Videos/Laser-Properties-Avatar.MP4#t=0.1" type="video/mp4"><source src="Videos/Laser-Properties-Avatar.Mp4.mp4#t=0.1" type="video/mp4"></video></div>
+          <figcaption><strong>Real Estate Agency Sample</strong>Realistic AI presenter<span class="sample-len"></span></figcaption>
         </figure>
         <figure class="sample">
-          <div class="sample-frame"><video controls playsinline preload="metadata" src="Videos/Liaison-Homes-Avatar.mp4#t=0.1" aria-label="Liaison Homes animated presenter sample video"></video></div>
-          <figcaption><strong>Liaison Homes</strong>Animated brand presenter<span class="sample-len"></span></figcaption>
+          <div class="sample-frame"><video controls playsinline preload="metadata" aria-label="Real estate agency sample: animated brand presenter"><source src="Videos/Liaison-Homes-Avatar.mp4#t=0.1" type="video/mp4"><source src="Videos/Liaison-Homes-Avatar.mp4.mp4#t=0.1" type="video/mp4"><source src="Videos/Liaison-Homes-Avatar.MP4#t=0.1" type="video/mp4"><source src="Videos/Liaison-Homes-Avatar.Mp4.mp4#t=0.1" type="video/mp4"></video></div>
+          <figcaption><strong>Real Estate Agency Sample</strong>Animated brand presenter<span class="sample-len"></span></figcaption>
         </figure>
       </div>
     </div>
@@ -1544,8 +1544,8 @@ document.addEventListener('play', function (e) {
       lede: 'Send us the photos of the home, plot or development. We send back cinematic listing tours and reels for Property24, BuyRentKenya, Instagram and WhatsApp, usually in 2–3 days.',
       cta: 'Get a free listing video',
       clips: [
-        { src: 'Videos/Laser-Properties-Avatar.mp4', title: 'Laser Properties', meta: 'Realistic AI presenter for an agency' },
-        { src: 'Videos/Liaison-Homes-Avatar.mp4', title: 'Liaison Homes', meta: 'Animated brand presenter' },
+        { src: 'Videos/Laser-Properties-Avatar.mp4', title: 'Real Estate Agency Sample', meta: 'Realistic AI presenter' },
+        { src: 'Videos/Liaison-Homes-Avatar.mp4', title: 'Real Estate Agency Sample', meta: 'Animated brand presenter' },
         { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Property walkthrough', meta: 'Room-by-room tour (villa example)' }
       ]
     },
@@ -1610,6 +1610,13 @@ document.addEventListener('play', function (e) {
     titleEl.textContent = c.title; metaEl.textContent = c.meta;
     renderDots(); clearBoard();
     bar.style.width = '0';
+    // If a file was uploaded with a doubled or capitalised extension, try those names too
+    var base = c.src.replace(/\.mp4$/i, '');
+    var tries = [c.src, base + '.mp4.mp4', base + '.MP4', base + '.Mp4.mp4'];
+    var n = 0;
+    video.onerror = function () {
+      if (++n < tries.length && COPY[niche].clips[idx] === c) { video.src = tries[n] + '#t=0.1'; video.load(); tryPlay(); }
+    };
     video.src = c.src + '#t=0.1';
     video.load();
     tryPlay();
