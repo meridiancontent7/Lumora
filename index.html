@@ -876,6 +876,25 @@ footer {
   }
 }
 
+/* ─── FOUNDING OFFER ─── */
+.founding-flag {
+  display: inline-flex; align-items: center; gap: 10px; margin: 18px 0 4px;
+  padding: 9px 16px 9px 12px; border: 1px solid var(--gold); border-radius: 999px;
+  background: rgba(201,136,42,0.12); color: var(--ivory); font-size: 13.5px; line-height: 1.4; text-decoration: none;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.founding-flag:hover { background: rgba(201,136,42,0.2); }
+.founding-flag strong { color: var(--gold-light); font-weight: 600; }
+.founding-flag .founding-count { color: var(--charcoal); background: var(--gold); padding: 1px 8px; border-radius: 999px; }
+.founding-flag.is-closed { border-color: var(--charcoal-4); background: transparent; }
+.founding-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: none; box-shadow: 0 0 0 0 rgba(201,136,42,0.6); animation: founding-pulse 1.8s infinite; }
+.founding-flag.is-closed .founding-dot { animation: none; background: var(--muted-2); }
+@keyframes founding-pulse { 0% { box-shadow: 0 0 0 0 rgba(201,136,42,0.55); } 70% { box-shadow: 0 0 0 9px rgba(201,136,42,0); } 100% { box-shadow: 0 0 0 0 rgba(201,136,42,0); } }
+@media (prefers-reduced-motion: reduce) { .founding-dot { animation: none; } }
+.pricing-founding { margin-top: 14px; font-size: 15px; color: var(--ivory); }
+.pricing-founding strong { color: var(--gold-light); }
+.pricing-founding a { color: var(--gold); margin-left: 6px; }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
@@ -1056,7 +1075,7 @@ footer {
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="https://app.lumoravideo.com/login">Log in</a></li>
-    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta" data-cta="nav">Claim a free video</a></li>
+    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta" data-cta="nav">10 free videos only</a></li>
   </ul>
   <a href="https://app.lumoravideo.com/login" class="nav-login-mobile">Log in</a>
 </nav>
@@ -1076,6 +1095,11 @@ footer {
         <button type="button" role="tab" class="niche-btn" data-niche="cars" aria-selected="false">I sell cars</button>
       </div>
 
+      <a class="founding-flag" href="https://app.lumoravideo.com/sample" id="founding-flag">
+        <span class="founding-dot" aria-hidden="true"></span>
+        <span><strong>Founding offer:</strong> only <strong>10 free videos</strong> for the first businesses. <span id="founding-left">Claim yours before they go.</span></span>
+      </a>
+
       <h1 class="hero-h1" id="hero-h1">Turn room photos into videos guests can walk through.</h1>
 
       <p class="hero-lede" id="hero-lede">Send us the photos you already have. We send back cinematic walkthroughs and reels for Airbnb, Booking.com and Instagram, usually in 2–3 days.</p>
@@ -1085,7 +1109,7 @@ footer {
         <a href="#samples" class="btn-ghost">Watch all samples</a>
       </div>
 
-      <p class="hero-trust" id="hero-trust">Free founding videos for the first businesses, no card needed. Plans you can pause or cancel anytime.</p>
+      <p class="hero-trust" id="hero-trust">No card needed. Plans you can pause or cancel anytime.</p>
     </div>
 
     <div class="hero-stage" aria-label="Sample video playing">
@@ -1360,6 +1384,7 @@ footer {
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">One flat monthly fee.<br><em>Pause or cancel anytime.</em></h2>
     <p class="section-sub">A &ldquo;video&rdquo; is one finished listing video or social reel. Same plans for car yards, real estate, hotels and Airbnbs.</p>
+    <p class="pricing-founding" id="pricing-founding"><strong>Founding offer:</strong> the first 10 businesses get their first video free. <a href="https://app.lumoravideo.com/sample">Claim one</a></p>
 
     <div class="pricing-promise">
       <span>No contracts. Pause or cancel anytime</span>
@@ -1392,7 +1417,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Voiceover and captions included</div>
           <div class="price-feature"><span class="pf-check">✓</span>Delivered in about 3 days</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim 1 of 10 free videos</a>
       </div>
 
       <div class="price-card featured">
@@ -1413,7 +1438,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
           <div class="price-feature"><span class="pf-check">✓</span>Portal access to download</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim 1 of 10 free videos</a>
       </div>
 
       <div class="price-card">
@@ -1433,7 +1458,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
           <div class="price-feature"><span class="pf-check">✓</span>Brand avatar add-on available</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim 1 of 10 free videos</a>
       </div>
     </div>
 
@@ -1459,9 +1484,9 @@ footer {
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <h2 class="cta-title">Ready to see<br><em>your first video?</em></h2>
-  <p class="cta-sub" id="cta-sub">Send us a few photos of a car or a property and we&rsquo;ll turn them into a finished video. The first businesses get theirs free, no card needed.</p>
+  <p class="cta-sub" id="cta-sub">Send us a few photos of a car or a property and we&rsquo;ll turn them into a finished video. Only 10 businesses get theirs free, no card needed.</p>
   <div class="cta-form">
-    <a href="https://app.lumoravideo.com/sample" class="btn-primary" data-cta="final">Claim a free founding video</a>
+    <a href="https://app.lumoravideo.com/sample" class="btn-primary" data-cta="final">Claim 1 of 10 free videos</a>
   </div>
   <div class="cta-note">No commitment. Takes about 2 minutes. Your video is usually ready within 2–3 days.</div>
 </section>
@@ -1516,13 +1541,27 @@ document.querySelectorAll('.sample').forEach(function (fig) {
     if (!state || state.left == null) return;
     var free = state.left > 0;
     var set = function (sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); };
-    set('[data-cta="nav"]', free ? 'Free video · ' + state.left + ' left' : 'Get your first video');
+    set('[data-cta="nav"]', free ? state.left + ' of ' + state.limit + ' free videos left' : 'Get your first video');
+    var flag = document.getElementById('founding-flag'), leftEl = document.getElementById('founding-left');
+    if (flag) {
+      if (free) {
+        flag.querySelector('span:last-child').innerHTML = '<strong>Founding offer:</strong> only <strong>' + state.limit + ' free videos</strong>. ' +
+          '<strong class="founding-count">' + state.left + ' left</strong>' + (state.left <= 3 ? ', almost gone.' : '. Claim yours before they go.');
+      } else {
+        flag.classList.add('is-closed');
+        flag.querySelector('span:last-child').innerHTML = '<strong>Founding offer closed:</strong> all ' + state.limit + ' free videos claimed. First video ' + kes(state.first_video_kes) + '.';
+      }
+    }
+    var pf = document.getElementById('pricing-founding');
+    if (pf) pf.innerHTML = free
+      ? '<strong>Founding offer:</strong> the first ' + state.limit + ' businesses get their first video free. <strong>' + state.left + ' left.</strong> <a href="https://app.lumoravideo.com/sample">Claim one</a>'
+      : '<strong>Founding offer closed.</strong> Your first video is ' + kes(state.first_video_kes) + ', no plan needed. <a href="https://app.lumoravideo.com/sample">Order one</a>';
     set('[data-cta="plan"]', free ? 'Claim 1 of ' + state.limit + ' free videos' : 'Get your first video');
     set('[data-cta="listing"]', free ? 'Claim a free listing video' : 'Order a listing video');
     set('[data-cta="final"]', free ? 'Claim 1 of ' + state.limit + ' free videos' : 'Get your first video: ' + kes(state.first_video_kes));
     var trust = document.getElementById('hero-trust');
     if (trust) trust.textContent = free
-      ? 'Founding ' + state.limit + ': ' + state.left + ' of ' + state.limit + ' free videos left. No card needed. Plans you can pause or cancel anytime.'
+      ? 'No card needed. Plans you can pause or cancel anytime.'
       : 'The ' + state.limit + ' free founding videos are taken. Your first video is ' + kes(state.first_video_kes) + ', no plan needed.';
     var sub = document.getElementById('cta-sub');
     if (sub) sub.textContent = free
