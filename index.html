@@ -1138,6 +1138,23 @@ footer {
       </div>
     </div>
 
+    <div class="sample-group" id="samples-homes">
+      <div class="sample-group-head">
+        <div class="sample-group-title">Real estate</div>
+        <div class="sample-group-note">Brand presenters for agencies and developers, realistic or animated</div>
+      </div>
+      <div class="sample-row">
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="Videos/Laser-Properties-Avatar.mp4#t=0.1" aria-label="Laser Properties realistic AI presenter sample video"></video></div>
+          <figcaption><strong>Laser Properties</strong>Realistic AI presenter<span class="sample-len"></span></figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="sample-frame"><video controls playsinline preload="metadata" src="Videos/Liaison-Homes-Avatar.mp4#t=0.1" aria-label="Liaison Homes animated presenter sample video"></video></div>
+          <figcaption><strong>Liaison Homes</strong>Animated brand presenter<span class="sample-len"></span></figcaption>
+        </figure>
+      </div>
+    </div>
+
     <div class="sample-group" id="samples-stays">
       <div class="sample-group-head">
         <div class="sample-group-title">Hotels &amp; Airbnbs</div>
@@ -1294,7 +1311,7 @@ footer {
         <div class="service-num">04</div>
         <span class="service-icon">🧑‍💼</span>
         <div class="service-name">Brand Avatar Presenter <span class="addon-tag">Add-on</span></div>
-        <div class="service-desc">An AI presenter built around your brand, with a consistent face and your colours, appearing in the videos you choose. Quoted per brand.</div>
+        <div class="service-desc">An AI presenter built around your brand, realistic or animated, with a consistent face, voice and your colours, appearing in the videos you choose. Quoted per brand.</div>
         <div class="service-delivers">
           <div class="deliver-item"><div class="deliver-dot"></div>Custom avatar built from your brand assets</div>
           <div class="deliver-item"><div class="deliver-dot"></div>Appears in intros, outros and reels</div>
@@ -1474,6 +1491,18 @@ var prices = {
   currLocal: ['KES ','KES ','KES ','KES ']
 };
 
+// Sample lengths, read from each video so captions never go stale
+document.querySelectorAll('.sample').forEach(function (fig) {
+  var v = fig.querySelector('video'), out = fig.querySelector('.sample-len');
+  if (!v || !out) return;
+  function show() {
+    if (!isFinite(v.duration) || !v.duration) return;
+    var t = Math.round(v.duration);
+    out.textContent = ' · ' + Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0');
+  }
+  if (v.readyState >= 1) show(); else v.addEventListener('loadedmetadata', show);
+});
+
 function toggleCurrency() {
   isLocal = !isLocal;
   var toggle = document.getElementById('currency-toggle');
@@ -1515,6 +1544,8 @@ document.addEventListener('play', function (e) {
       lede: 'Send us the photos of the home, plot or development. We send back cinematic listing tours and reels for Property24, BuyRentKenya, Instagram and WhatsApp, usually in 2–3 days.',
       cta: 'Get a free listing video',
       clips: [
+        { src: 'Videos/Laser-Properties-Avatar.mp4', title: 'Laser Properties', meta: 'Realistic AI presenter for an agency' },
+        { src: 'Videos/Liaison-Homes-Avatar.mp4', title: 'Liaison Homes', meta: 'Animated brand presenter' },
         { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Property walkthrough', meta: 'Room-by-room tour (villa example)' }
       ]
     },
