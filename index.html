@@ -1056,7 +1056,7 @@ footer {
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="https://app.lumoravideo.com/login">Log in</a></li>
-    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta">Get a free sample</a></li>
+    <li><a href="https://app.lumoravideo.com/sample" class="nav-cta" data-cta="nav">Claim a free video</a></li>
   </ul>
   <a href="https://app.lumoravideo.com/login" class="nav-login-mobile">Log in</a>
 </nav>
@@ -1081,11 +1081,11 @@ footer {
       <p class="hero-lede" id="hero-lede">Send us the photos you already have. We send back cinematic walkthroughs and reels for Airbnb, Booking.com and Instagram, usually in 2–3 days.</p>
 
       <div class="hero-actions">
-        <a href="https://app.lumoravideo.com/sample" class="btn-primary" id="hero-cta">Get a free property video</a>
+        <a href="https://app.lumoravideo.com/sample" class="btn-primary" id="hero-cta">Claim your free property video</a>
         <a href="#samples" class="btn-ghost">Watch all samples</a>
       </div>
 
-      <p class="hero-trust">Free sample, no card needed. Plans you can pause or cancel anytime.</p>
+      <p class="hero-trust" id="hero-trust">Free founding videos for the first businesses, no card needed. Plans you can pause or cancel anytime.</p>
     </div>
 
     <div class="hero-stage" aria-label="Sample video playing">
@@ -1099,7 +1099,7 @@ footer {
       <div class="device" id="device">
         <video id="hero-video" muted playsinline preload="metadata"></video>
         <button type="button" class="device-play" id="hero-play" hidden>Play sample</button>
-        <button type="button" class="device-sound" id="hero-sound" aria-pressed="false">Sound off</button>
+        <button type="button" class="device-sound" id="hero-sound" aria-pressed="false" aria-label="Turn sound on">🔊 Sound on</button>
         <div class="device-progress"><span id="hero-progress"></span></div>
       </div>
 
@@ -1392,7 +1392,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Voiceover and captions included</div>
           <div class="price-feature"><span class="pf-check">✓</span>Delivered in about 3 days</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
       </div>
 
       <div class="price-card featured">
@@ -1413,7 +1413,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
           <div class="price-feature"><span class="pf-check">✓</span>Portal access to download</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
       </div>
 
       <div class="price-card">
@@ -1433,7 +1433,7 @@ footer {
           <div class="price-feature"><span class="pf-check">✓</span>Priority turnaround, about 48 hours</div>
           <div class="price-feature"><span class="pf-check">✓</span>Brand avatar add-on available</div>
         </div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free sample</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="plan">Claim a free founding video</a>
       </div>
     </div>
 
@@ -1447,7 +1447,7 @@ footer {
         <div class="price-amount"><span class="price-currency" id="curr-4">$</span><span class="price-num" id="price-4">90</span></div>
         <div class="price-period">per listing</div>
         <div class="price-local" id="local-4">KES 4,000 per listing</div>
-        <a href="https://app.lumoravideo.com/sample" class="price-cta">Get a free listing video</a>
+        <a href="https://app.lumoravideo.com/sample" class="price-cta" data-cta="listing">Claim a free listing video</a>
       </div>
     </div>
 
@@ -1459,11 +1459,11 @@ footer {
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <h2 class="cta-title">Ready to see<br><em>your first video?</em></h2>
-  <p class="cta-sub">Send us a few photos of a car or a property and we&rsquo;ll turn them into a finished video. Free sample, no card needed.</p>
+  <p class="cta-sub" id="cta-sub">Send us a few photos of a car or a property and we&rsquo;ll turn them into a finished video. The first businesses get theirs free, no card needed.</p>
   <div class="cta-form">
-    <a href="https://app.lumoravideo.com/sample" class="btn-primary">Get a free sample</a>
+    <a href="https://app.lumoravideo.com/sample" class="btn-primary" data-cta="final">Claim a free founding video</a>
   </div>
-  <div class="cta-note">No commitment. Takes about 2 minutes. Your sample is usually ready within 2–3 days.</div>
+  <div class="cta-note">No commitment. Takes about 2 minutes. Your video is usually ready within 2–3 days.</div>
 </section>
 
 <!-- FOOTER -->
@@ -1503,6 +1503,42 @@ document.querySelectorAll('.sample').forEach(function (fig) {
   if (v.readyState >= 1) show(); else v.addEventListener('loadedmetadata', show);
 });
 
+// ─── Founding 10: live count of free videos left (from the Lumora app) ───
+(function () {
+  var state = null; // { limit, left, first_video_kes, first_video_usd }
+  function kes(n) { return 'KES ' + Number(n).toLocaleString('en-KE'); }
+  // Hero button text for the current niche ("property video", "car video" ...)
+  window.lumoraCta = function (noun) {
+    if (!state || state.left == null) return 'Claim your free ' + noun;
+    return state.left > 0 ? 'Claim your free ' + noun : 'Get your first ' + noun + ': ' + kes(state.first_video_kes);
+  };
+  function apply() {
+    if (!state || state.left == null) return;
+    var free = state.left > 0;
+    var set = function (sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); };
+    set('[data-cta="nav"]', free ? 'Free video · ' + state.left + ' left' : 'Get your first video');
+    set('[data-cta="plan"]', free ? 'Claim 1 of ' + state.limit + ' free videos' : 'Get your first video');
+    set('[data-cta="listing"]', free ? 'Claim a free listing video' : 'Order a listing video');
+    set('[data-cta="final"]', free ? 'Claim 1 of ' + state.limit + ' free videos' : 'Get your first video: ' + kes(state.first_video_kes));
+    var trust = document.getElementById('hero-trust');
+    if (trust) trust.textContent = free
+      ? 'Founding ' + state.limit + ': ' + state.left + ' of ' + state.limit + ' free videos left. No card needed. Plans you can pause or cancel anytime.'
+      : 'The ' + state.limit + ' free founding videos are taken. Your first video is ' + kes(state.first_video_kes) + ', no plan needed.';
+    var sub = document.getElementById('cta-sub');
+    if (sub) sub.textContent = free
+      ? 'Send us a few photos of a car or a property and we’ll turn them into a finished video. ' + state.left + ' of ' + state.limit + ' free founding videos left.'
+      : 'Send us a few photos of a car or a property and we’ll turn them into a finished video. Your first one is ' + kes(state.first_video_kes) + ', no plan needed.';
+    var hero = document.getElementById('hero-cta');
+    var on = document.querySelector('.niche-btn.is-on');
+    var nouns = { stays: 'property video', homes: 'listing video', cars: 'car video' };
+    if (hero && on) hero.textContent = window.lumoraCta(nouns[on.getAttribute('data-niche')] || 'video');
+  }
+  fetch('https://app.lumoravideo.com/.netlify/functions/founding')
+    .then(function (r) { return r.json(); })
+    .then(function (d) { state = d; apply(); })
+    .catch(function () { /* keep the plain wording */ });
+})();
+
 function toggleCurrency() {
   isLocal = !isLocal;
   var toggle = document.getElementById('currency-toggle');
@@ -1532,7 +1568,7 @@ document.addEventListener('play', function (e) {
     stays: {
       h1: 'Turn room photos into videos guests can walk through.',
       lede: 'Send us the photos you already have. We send back cinematic walkthroughs and reels for Airbnb, Booking.com and Instagram, usually in 2–3 days.',
-      cta: 'Get a free property video',
+      cta: 'property video',
       clips: [
         { src: 'Videos/Kazuri-1.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa walkthrough, Diani Beach' },
         { src: 'Videos/Kazuri-2.Mp4.mp4', title: 'Kazuri Diani', meta: 'Villa reel, Diani Beach' },
@@ -1542,7 +1578,7 @@ document.addEventListener('play', function (e) {
     homes: {
       h1: 'Turn listing photos into viewings buyers can take from their phone.',
       lede: 'Send us the photos of the home, plot or development. We send back cinematic listing tours and reels for Property24, BuyRentKenya, Instagram and WhatsApp, usually in 2–3 days.',
-      cta: 'Get a free listing video',
+      cta: 'listing video',
       clips: [
         { src: 'Videos/Laser-Properties-Avatar.mp4', title: 'Real Estate Agency Sample', meta: 'Realistic AI presenter' },
         { src: 'Videos/Liaison-Homes-Avatar.mp4', title: 'Real Estate Agency Sample', meta: 'Animated brand presenter' },
@@ -1552,7 +1588,7 @@ document.addEventListener('play', function (e) {
     cars: {
       h1: 'Turn car photos into videos that sell the car before the test drive.',
       lede: 'Send us the photos from your lot. We send back cinematic listing videos and reels for Jiji, Instagram and TikTok, usually in 2–3 days.',
-      cta: 'Get a free car video',
+      cta: 'car video',
       clips: [
         { src: 'Videos/Caryard-Showcase.Mp4.mp4', title: 'Car showcase', meta: 'Listing video for a car yard' },
         { src: 'Videos/caryard-avatar.mp4.mp4', title: 'Brand avatar presenter', meta: 'AI presenter for a car yard' }
@@ -1631,7 +1667,7 @@ document.addEventListener('play', function (e) {
     });
     h1.classList.add('swap'); lede.classList.add('swap');
     setTimeout(function () {
-      h1.textContent = COPY[n].h1; lede.textContent = COPY[n].lede; cta.textContent = COPY[n].cta;
+      h1.textContent = COPY[n].h1; lede.textContent = COPY[n].lede; cta.textContent = window.lumoraCta ? window.lumoraCta(COPY[n].cta) : 'Claim your free ' + COPY[n].cta;
       h1.classList.remove('swap'); lede.classList.remove('swap');
     }, 220);
     load(0);
@@ -1674,7 +1710,8 @@ document.addEventListener('play', function (e) {
     userStarted = true;
     video.muted = !video.muted;
     soundBtn.setAttribute('aria-pressed', video.muted ? 'false' : 'true');
-    soundBtn.textContent = video.muted ? 'Sound off' : 'Sound on';
+    soundBtn.textContent = video.muted ? '🔊 Sound on' : '🔇 Sound off';
+    soundBtn.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
     if (video.paused) video.play();
   });
   tabs.forEach(function (t) { t.addEventListener('click', function () { setNiche(t.getAttribute('data-niche')); }); });
